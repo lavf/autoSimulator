@@ -1,0 +1,3 @@
+16:57:59 07.06., Frame 33855, Seq# 14015: Critical? only when object below horizon line is a human object
+16:58:19 07.06., Frame 33962, Seq# 14122: Warning?
+16:58:29 07.06., Frame 34015, Seq# 14175: Alarm?
