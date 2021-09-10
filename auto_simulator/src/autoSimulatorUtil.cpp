@@ -42,11 +42,17 @@ void displayMenu(){
 	std::cout << "T - Display content of text file" << std::endl;
 	std::cout << "V - Read 'Videostream' file (JSON file)" << std::endl;
 	std::cout << "N - Read 'Notes' file (JSON file)" << std::endl;
-	std::cout << "S - ------" << std::endl;
+	std::cout << "S - Show files of directory 'notesJsonFiles'" << std::endl;
 	std::cout << "L - ------" << std::endl;
 	std::cout << "F - ------" << std::endl;
 	std::cout << "Q - Quit" << std::endl;
 	std::cout << "\nEnter your choice: " << std::endl;
+}
+
+void listDirectoryNotesJson(){
+	char command[50] = "ls src/notesJsonFiles";
+	system(command);
+	std::cout << std::endl;
 }
 
 void printTimeNow(){

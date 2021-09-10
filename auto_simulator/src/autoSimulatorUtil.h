@@ -6,6 +6,7 @@ std::string addYearAdjustHour(std::string str, const std::string &year);
 void convertDateTime(std::string str);
 void convertDateTime2(std::string str);
 void displayMenu();
+void listDirectoryNotesJson();
 void printTimeNow();
 
 

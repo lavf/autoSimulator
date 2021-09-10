@@ -49,7 +49,7 @@ int main() {
 	}
 	//
 	else if(userChoice == 'S'){
-		std::cout << "s" << std::endl;
+		listDirectoryNotesJson();
 	}
 	//
 	else if(userChoice == 'L'){
