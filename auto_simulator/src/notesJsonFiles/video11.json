@@ -1,0 +1,64 @@
+﻿{
+	"filename": 11,
+	"date": "23.06.",
+	"status": [{
+			"notificationnr": 0,
+			"seqnr": 2,
+			"time": "15:04:12",
+			"result": "No Critical"
+		},
+		{
+			"notificationnr": 1,
+			"seqnr": 1579,
+			"time": "15:04:12",
+			"result": "No Critical"
+		},
+		{
+			"notificationnr": 2,
+			"seqnr": 1687,
+			"time": "15:04:33",
+			"result": "No Warning"
+		},
+		{
+			"notificationnr": 3,
+			"seqnr": 1741,
+			"time": "15:04:43",
+			"result": "No Alarm"
+		},
+		{
+			"notificationnr": 4,
+			"seqnr": 1769,
+			"time": "00:00:00",
+			"result": "No Alarm"
+		},
+		{
+			"notificationnr": 5,
+			"seqnr": 2738,
+			"time": "15:07:55",
+			"result": "Critical"
+		},
+		{
+			"notificationnr": 6,
+			"seqnr": 2804,
+			"time": "00:00:00",
+			"result": "End Critical"
+		},
+		{
+			"notificationnr": 7,
+			"seqnr": 2846,
+			"time": "15:08:15",
+			"result": "Warning"
+		},
+		{
+			"notificationnr": 8,
+			"seqnr": 2900,
+			"time": "15:08:25",
+			"result": "Alarm"
+		},
+		{
+			"notificationnr": 9,
+			"seqnr": 3231,
+			"time": "15:09:27",
+			"result": "End Alarm"
+		}]
+}

@@ -37,26 +37,80 @@ void convertDateTime2(std::string str){
 	std::cout << "Date: " << std::put_time(&tm, "%d %b") << std::endl;
 }
 
+int convSeqStrIntoInt(std::string word){
+	word.erase(word.size()-1);
+	return std::stoi(word);
+}
+
+void displayLanguageMenu(){
+	std::cout << "E - English" << std::endl;
+	std::cout << "D - Deutsch" << std::endl;
+	std::cout << "X - Quit" << std::endl;
+	std::cout << "\nLanguage / Sprache: " << std::endl;
+}
+
 // Display the options in the terminal
 void displayMenu(){
 	std::cout << "T - Display content of text file" << std::endl;
 	std::cout << "V - Read 'Videostream' file (JSON file)" << std::endl;
 	std::cout << "N - Read 'Notes' file (JSON file)" << std::endl;
-	std::cout << "S - Show files of directory 'notesJsonFiles'" << std::endl;
-	std::cout << "L - ------" << std::endl;
-	std::cout << "F - ------" << std::endl;
+	std::cout << "A - Show files of directory 'notesJsonFiles'" << std::endl;
 	std::cout << "Q - Quit" << std::endl;
 	std::cout << "\nEnter your choice: " << std::endl;
 }
 
+void displaySubMenu(std::string directoryName, std::string dataType){
+	std::cout << "S - Show files of '" << directoryName << "' directory" << std::endl;
+	std::cout << "E - Enter '" << dataType  << "' file name" << std::endl;
+	std::cout << "R - Return to main menu" << std::endl;
+	std::cout << "\nEnter your choice: " << std::endl;
+}
+
+void displayMenuDe(){
+	std::cout << "T - Textdatei einlesen" << std::endl;
+	std::cout << "V - 'Videostream'-Datei (JSON-Datei) einlesen" << std::endl;
+	std::cout << "N - 'Notes'-Datei (JSON-Datei) einlesen" << std::endl;
+	std::cout << "A - Dateien im 'notesJsonFiles'-Verzeichnis anzeigen" << std::endl;
+	std::cout << "Q - Beenden" << std::endl;
+	std::cout << "\nGeben Sie Ihre Auswahl ein: " << std::endl;
+}
+
+void displaySubMenuDe(std::string directoryName, std::string dataType){
+	std::cout << "S - Dateien im '"<< directoryName << "'-Verzeichnis anzeigen" << std::endl;
+	std::cout << "E - '" << dataType << "'-Dateiname eingeben" << std::endl;
+	std::cout << "R - Zum Hauptmenü zurückkehren" << std::endl;
+	std::cout << "\nGeben Sie Ihre Auswahl ein: " << std::endl;
+}
+
+// User's choice is converted to upper case character
+char getChoice(char userChoice){
+	std::cin >> userChoice;
+	return toupper(userChoice);
+}
+
 void listDirectoryNotesJson(){
+	std::cout << "////////////////////////////////////////////////////" << std::endl;
 	char command[50] = "ls src/notesJsonFiles";
 	system(command);
-	std::cout << std::endl;
+	std::cout << "////////////////////////////////////////////////////\n" << std::endl;
+}
+
+void listDirectoryNotesText(){
+	std::cout << "////////////////////////////////////////////////////" << std::endl;
+	char command[50] = "ls src/notesTextFiles";
+	system(command);
+	std::cout << "////////////////////////////////////////////////////\n" << std::endl;
+}
+
+void listDirectoryVideostreamJson(){
+	std::cout << "////////////////////////////////////////////////////" << std::endl;
+	char command[50] = "ls src/videostreamJsonFiles";
+	system(command);
+	std::cout << "////////////////////////////////////////////////////\n" << std::endl;
 }
 
 void printTimeNow(){
 	auto rightNow = std::chrono::system_clock::now();
 	std::time_t timeNow = std::chrono::system_clock::to_time_t(rightNow);
-    std::cout << "Time now: " << std::ctime(&timeNow);
+    std::cout << std::ctime(&timeNow);
 }
