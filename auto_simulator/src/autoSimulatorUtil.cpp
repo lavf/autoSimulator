@@ -10,8 +10,15 @@
 std::string addYearAdjustHour(std::string str, const std::string &year ){
 	// Changing the hour digit
 	std::string hour = str.substr(0,2);
-	int changedHr = stoi(hour) - 1;
-	std::string strChangedHr = std::to_string(changedHr);
+	std::string strChangedHr;
+	if(hour == "00"){
+		strChangedHr = "23";
+	}else if(hour == "01"){
+		strChangedHr = "00";
+	}else{
+		int changedHr = stoi(hour) - 1;
+		strChangedHr = std::to_string(changedHr);
+	}
 	str.replace(str.begin(),str.begin()+2,strChangedHr);
 	str += year;
 	return str;
@@ -25,6 +32,15 @@ void convertDateTime(std::string str){
 	std::chrono::system_clock::from_time_t(std::mktime(&tm));
 	std::cout << "Time: " << std::put_time(&tm, "%H:%M:%S") << std::endl;
 	std::cout << "Date: " << std::put_time(&tm, "%d %b %Y") << std::endl;
+}
+
+void convertDateTimeDe(std::string str){
+	std::tm tm = {};
+	std::stringstream ss(str);
+	ss >> std::get_time(&tm, "%H:%M:%S %d.%m.%Y");
+	std::chrono::system_clock::from_time_t(std::mktime(&tm));
+	std::cout << "Uhrzeit: " << std::put_time(&tm, "%H:%M:%S") << std::endl;
+	std::cout << "Datum: " << std::put_time(&tm, "%d %b %Y") << std::endl;
 }
 
 // Same as convertDateTime but with different format
@@ -54,7 +70,7 @@ void displayMenu(){
 	std::cout << "T - Display content of text file" << std::endl;
 	std::cout << "V - Read 'Videostream' file (JSON file)" << std::endl;
 	std::cout << "N - Read 'Notes' file (JSON file)" << std::endl;
-	std::cout << "A - Show files of directory 'notesJsonFiles'" << std::endl;
+	std::cout << "A - Compare files: results from simulator, analysis and videostream" << std::endl;
 	std::cout << "Q - Quit" << std::endl;
 	std::cout << "\nEnter your choice: " << std::endl;
 }
@@ -70,7 +86,7 @@ void displayMenuDe(){
 	std::cout << "T - Textdatei einlesen" << std::endl;
 	std::cout << "V - 'Videostream'-Datei (JSON-Datei) einlesen" << std::endl;
 	std::cout << "N - 'Notes'-Datei (JSON-Datei) einlesen" << std::endl;
-	std::cout << "A - Dateien im 'notesJsonFiles'-Verzeichnis anzeigen" << std::endl;
+	std::cout << "A - Vergleich von Simulator-Ergebnis-, Analyse- und Videostream-Datei" << std::endl;
 	std::cout << "Q - Beenden" << std::endl;
 	std::cout << "\nGeben Sie Ihre Auswahl ein: " << std::endl;
 }

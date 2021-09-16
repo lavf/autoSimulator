@@ -4,6 +4,7 @@
 
 std::string addYearAdjustHour(std::string str, const std::string &year);
 void convertDateTime(std::string str);
+void convertDateTimeDe(std::string str);
 void convertDateTime2(std::string str);
 int convSeqStrIntoInt(std::string word);
 void displayLanguageMenu();

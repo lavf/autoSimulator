@@ -1,0 +1,3 @@
+Session 6, Seqnr 377: Critical
+Session 6, Seqnr 406: End_Critical
+End: 492

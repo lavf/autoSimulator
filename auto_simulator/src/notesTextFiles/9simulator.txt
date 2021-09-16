@@ -1,0 +1,7 @@
+Session 9, Seqnr 1163: Critical
+Session 9, Seqnr 1194: End_Critical
+Session 9, Seqnr 1302: Critical
+Session 9, Seqnr 1328: End_Critical
+Session 9, Seqnr 1984: Critical
+Session 9, Seqnr 2022: End_Critical
+End: 2108

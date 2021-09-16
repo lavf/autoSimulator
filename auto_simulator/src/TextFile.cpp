@@ -3,15 +3,15 @@
 #include <string>
 #include "TextFile.h"
 
-TextFile::TextFile(const std::string &textFileName)
- :textFileName{textFileName}{}
+TextFile::TextFile(const std::string &fileName)
+ :File{fileName}{}
 
 TextFile::~TextFile() {
 }
 
 void TextFile::textReader(){
 
-	std::ifstream file(textFileName, std::ios::in);
+	std::ifstream file(fileName, std::ios::in);
 	std::string line;
 
 	std::cout << "////////////////////////////////////////////////////\n" << std::endl;
@@ -24,10 +24,11 @@ void TextFile::textReader(){
 			std::cout << line << std::endl;
 			std::getline(file, line);
 		}
+		std::cout << "\n////////////////////////////////////////////////////\n" << std::endl;
 		file.close();
-    } else
+    } else {
     	std::cout << "ERROR!\n";
-
-	std::cout << "\n////////////////////////////////////////////////////\n" << std::endl;
+    	std::cout << "\n////////////////////////////////////////////////////\n" << std::endl;
+    }
 
 }

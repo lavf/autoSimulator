@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <string>
+#include "File.h"
 #include "JsonFile.h"
 #include "TextFile.h"
 #include "autoSimulatorUtil.h"
@@ -118,7 +119,20 @@ int main() {
 			}
 			// Show "notesJsonFiles" directory
 			else if(userChoice == 'A'){
-				listDirectoryNotesJson();
+				std::string videoNumber {};
+				std::string userJsonNotes {};
+				std::string userJsonVideostream {};
+				std::string userTextSim {};
+
+				std::cout << "Enter 'Videostream' number: ";
+				std::cin >> videoNumber;
+
+				userJsonVideostream = videoNumber + ".json";
+				userJsonNotes = "video" + videoNumber + ".json";
+				userTextSim = videoNumber + "simulator.txt";
+
+				JsonFile jsonComp ("src/videostreamJsonFiles/" + userJsonVideostream, "src/notesJsonFiles/" +userJsonNotes, "src/notesTextFiles/" + userTextSim);
+				jsonComp.jsonCompare();
 			}
 			// Message of goodbye
 			else if(userChoice == 'Q'){
@@ -176,7 +190,7 @@ int main() {
 							std::cout << "'Video'-Dateiname eingeben: ";
 							std::cin >> userVideoJsonInput;
 							JsonFile videostreamFile ("src/videostreamJsonFiles/" + userVideoJsonInput);
-							videostreamFile.jsonReaderStream();
+							videostreamFile.jsonReaderStreamDe();
 						}
 						// Return to main menu
 						else if(userSubChoice == 'R'){
@@ -221,12 +235,12 @@ int main() {
 					std::cout << "'Videostream'-Nummer eingeben: ";
 					std::cin >> videoNumber;
 
-					userJsonVideostream = videoNumber + "short.json";
+					userJsonVideostream = videoNumber + ".json";
 					userJsonNotes = "video" + videoNumber + ".json";
-					userTextSim = videoNumber + "sim.txt";
+					userTextSim = videoNumber + "simulator.txt";
 
 					JsonFile jsonComp ("src/videostreamJsonFiles/" + userJsonVideostream, "src/notesJsonFiles/" +userJsonNotes, "src/notesTextFiles/" + userTextSim);
-					jsonComp.jsonCompare();
+					jsonComp.jsonCompareDe();
 				}
 				// Message of goodbye
 				else if(userChoice == 'Q'){

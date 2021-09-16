@@ -1,0 +1,40 @@
+﻿{
+	"filename": 10,
+	"date": "23.06.",
+	"status": [{
+			"notificationnr": 1,
+			"seqnr": 4369,
+			"time": "13:50:43",
+			"result": "Critical"
+		},
+		{
+			"notificationnr": 2,
+			"seqnr": 4402,
+			"time": "13:50:49",
+			"result": "End Critical"
+		},
+		{
+			"notificationnr": 3,
+			"seqnr": 4478,
+			"time": "13:51:03",
+			"result": "Critical"
+		},
+		{
+			"notificationnr": 4,
+			"seqnr": 4524,
+			"time": "13:51:12",
+			"result": "End Critical"
+		},
+		{
+			"notificationnr": 5,
+			"seqnr": 4716,
+			"time": "13:51:47",
+			"result": "Critical"
+		},
+		{
+			"notificationnr": 6,
+			"seqnr": 4740,
+			"time": "13:51:52",
+			"result": "End Critical"
+		}]
+}
