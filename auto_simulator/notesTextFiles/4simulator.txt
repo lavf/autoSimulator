@@ -1,3 +1,0 @@
-Session 4, Seqnr 106: Critical
-Session 4, Seqnr 139: End_Critical
-End: 207

@@ -1,7 +1,0 @@
-Session 11, Seqnr 1579: Critical
-Session 11, Seqnr 1687: Warning
-Session 11, Seqnr 1741: Alarm
-Session 11, Seqnr 1769: End_Alarm
-Session 11, Seqnr 2738: Critical
-Session 11, Seqnr 2804: End_Critical
-End: 3368
