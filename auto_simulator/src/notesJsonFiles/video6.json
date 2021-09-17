@@ -1,0 +1,28 @@
+﻿{
+	"filename": 6,
+	"date": "18.06.",
+	"status": [{
+			"notificationnr": 1,
+			"seqnr": 376,
+			"time": "11:31:02",
+			"result": "Critical"
+		},
+		{
+			"notificationnr": 2,
+			"seqnr": 377,
+			"time": "11:31:02",
+			"result": "No Notice"
+		},
+		{
+			"notificationnr": 3,
+			"seqnr": 404,
+			"time": "11:31:07",
+			"result": "End Critical"
+		},
+		{
+			"notificationnr": 4,
+			"seqnr": 406,
+			"time": "11:31:07",
+			"result": "No Notice"
+		}]
+}
