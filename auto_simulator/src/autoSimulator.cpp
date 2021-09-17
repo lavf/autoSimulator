@@ -56,6 +56,7 @@ int main() {
 					std::cout << "Enter text file name: ";
 					std::cin >> userTextFileInput;
 					TextFile notesTextFile ("src/notesTextFiles/" + userTextFileInput);
+					notesTextFile.printHeader();
 					notesTextFile.textReader();
 				}
 				// Return to main menu
@@ -165,6 +166,7 @@ int main() {
 							std::cout << "Textdateiname eingeben: ";
 							std::cin >> userTextFileInput;
 							TextFile notesTextFile ("src/notesTextFiles/" + userTextFileInput);
+							notesTextFile.printHeaderDe();
 							notesTextFile.textReader();
 						}
 						// Return to main menu

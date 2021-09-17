@@ -2,6 +2,8 @@
 #include <fstream>
 #include <string>
 #include <map>
+#include <chrono>
+#include <iomanip>
 #include "JsonFile.h"
 #include "autoSimulatorUtil.h"
 #include "single_include/nlohmann/json.hpp"
@@ -48,38 +50,50 @@ void JsonFile::jsonReaderStream(){
 	file >> j;
 	size_t lineNumber {0};
 	int countFrames {0};
-	std::cout << "==================================================\n" << std::endl;
+	std::cout << "=======================================================================================================\n" << std::endl;
+
+	std::cout << "-------------------------------------------------------------------------------------------------------" << std::endl;
+	std::cout << std::setw(16) << std::left << "Session"
+			  << std::setw(24) << "Sequence Nr"
+			  << std::setw(24) << "Frame ID"
+			  << std::setw(35) << "Time"
+			  << std::right << std::setw(4) << "Date"
+			  << std::endl;
+	std::cout << "-------------------------------------------------------------------------------------------------------" << std::endl;
+
+
 
 	for(auto o : j["videostream"]){
-		std::cout << "Session or name of the video: " << o["session"] << std::endl;
-		std::cout << "Sequence Number: " << o["seqnr"] << std::endl;
-		std::cout << "Date and time string from JSON : " << o["date"] << std::endl;
-//		convertDateTime2(o["date"]);
 		std::string oldDate = o["date"];
-//		// The following statement shows the date with hour changed due to time zone
-//		std::cout << "Date with year: " << addYearAdjustHour(oldDate,"2021") << std::endl;
-		convertDateTime(addYearAdjustHour(oldDate,"2021"));
-		std::cout << "JSON parsed at: ";
-		printTimeNow();
+		std::string temp = addYearAdjustHour(oldDate,"2021");
 
-		std::cout << "---------------------------------------------------" << std::endl;
+		std::tm tm = {};
+		std::stringstream ss(temp);
+		ss >> std::get_time(&tm, "%H:%M:%S %d.%m.%Y");
+		std::chrono::system_clock::from_time_t(std::mktime(&tm));
 
 		for(auto obj : o["content"]["disp"]){
 			if (obj["n"]== "Frame ID"){
-				std::cout << "Frame ID: " << obj["v"]<< std::endl;
-				++countFrames;
-			} //else
-				//std::cout << "System Time: " << obj["v"]<< std::endl;
+					++countFrames;
+		std::cout << std::setw(20) << std::left << o["session"] << "\t\t"
+				  << std::setw(16) << o["seqnr"] << "\t\t\t"
+				  << std::setw(16) << obj["v"] << "\t\t\t"
+				  << std::setw(20) << std::put_time(&tm, "%H:%M:%S") << "  "
+				  << std::setw(20) << std::put_time(&tm, "%d %b %Y") << std::endl;
+//		std::cout << "Date and time string from JSON : " << o["date"] << std::endl;
+//		convertDateTime2(o["date"]);
+					}
 		}
 
-		std::cout << "***************************************************" << std::endl;
 		lineNumber++;
 	}
-
+	std::cout << "*******************************************************************************************************" << std::endl;
+	std::cout << "JSON parsed at: ";
+	printTimeNow();
 	std::cout << "The JSON file has " << lineNumber << " lines" << std::endl;
 	std::cout << "and has: " << countFrames << " Frames " << std::endl;
 	file.close();
-	std::cout << "===================================================\n" << std::endl;
+	std::cout << "=======================================================================================================\n" << std::endl;
 }
 
 void JsonFile::jsonReaderStreamDe(){
@@ -102,7 +116,7 @@ void JsonFile::jsonReaderStreamDe(){
 		std::cout << "---------------------------------------------------" << std::endl;
 
 		for(auto obj : o["content"]["disp"]){
-			if (obj["n"]== "Frame-ID"){
+			if (obj["n"]== "Frame ID"){
 				std::cout << "Rahmen-ID: " << obj["v"]<< std::endl;
 				++countFrames;
 			} //else
@@ -152,16 +166,36 @@ void JsonFile::jsonCompare(){
 //	}
 //	std::cout << std::endl;
 
+	std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
+	std::cout << std::setw(16) << std::left << "Session"
+			  << std::setw(24) << "Sequence"
+			  << std::setw(24) << "Analysis Notice"
+			  << std::setw(24) << "Simulator Notice"
+			  << std::setw(35) << "Time"
+			  << std::right << std::setw(4) << "Date" << std::endl;
+	std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
+
 	for(auto o : jvs["videostream"]){
 		for(auto obj : jno["status"]){
 			if(obj["seqnr"] == o["seqnr"]){
-				std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
-				std::cout << "Sequence: " << obj["seqnr"] << std::endl;
-				std::string oldDate = o["date"];
-				convertDateTime(addYearAdjustHour(oldDate,"2021"));
-				std::cout << "Analysis Notice: " << obj["result"] << std::endl;
-				if(mapa.find(o["seqnr"]) != mapa.end())
-					std::cout << "Simulator Notice: " << mapa.at(o["seqnr"]) << std::endl;
+
+					std::string oldDate = o["date"];
+					std::string temp = addYearAdjustHour(oldDate,"2021");
+
+					std::tm tm = {};
+					std::stringstream ss(temp);
+					ss >> std::get_time(&tm, "%H:%M:%S %d.%m.%Y");
+					std::chrono::system_clock::from_time_t(std::mktime(&tm));
+					//convertDateTime(addYearAdjustHour(oldDate,"2021"));
+
+					std::cout << std::setw(16) << std::left << o["session"] << "\t\t"
+							  << std::setw(24) << obj["seqnr"] << "\t\t\t"
+							  << std::setw(34) << ((obj["result"]== "Alarm") ? "Alarm " : obj["result"] ) << "\t\t"
+							  << std::setw(24) <<
+							  (((mapa.find(o["seqnr"]) != mapa.end())? (mapa.at(o["seqnr"]) == "End_Critical") ? "End Critical" :  ((mapa.at(o["seqnr"]) == "End_Alarm")) ? "End Alarm": mapa.at(o["seqnr"]):" "))
+							  << std::setw(20) << std::put_time(&tm, "%H:%M:%S") << "  "
+							  << std::setw(20) << std::put_time(&tm, "%d %b %Y") << std::endl;
+
 			}
 		}
 	}
@@ -169,7 +203,7 @@ void JsonFile::jsonCompare(){
 	file2.close();
 	file1.close();
 	file.close();
-	std::cout << "===================================================\n" << std::endl;
+	std::cout << "===============================================================================================================================\n" << std::endl;
 }
 
 void JsonFile::jsonCompareDe(){

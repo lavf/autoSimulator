@@ -13,8 +13,13 @@ std::string addYearAdjustHour(std::string str, const std::string &year ){
 	std::string strChangedHr;
 	if(hour == "00"){
 		strChangedHr = "23";
-	}else if(hour == "01"){
-		strChangedHr = "00";
+	}else if(hour == "01" || hour == "02" || hour == "03" || hour == "04" ||
+			hour == "05" || hour == "06" || hour == "07" || hour == "08" || hour == "09"){
+		std::string temp = hour.substr(1,1);
+		int changedHr = stoi(temp) - 1;
+		strChangedHr = "0" + std::to_string(changedHr);
+	}else if(hour == "10"){
+			strChangedHr = "09";
 	}else{
 		int changedHr = stoi(hour) - 1;
 		strChangedHr = std::to_string(changedHr);
@@ -105,28 +110,28 @@ char getChoice(char userChoice){
 }
 
 void listDirectoryNotesJson(){
-	std::cout << "////////////////////////////////////////////////////" << std::endl;
+	std::cout << "//////////////////////////////////////////////////////////////////////////////" << std::endl;
 	char command[50] = "ls src/notesJsonFiles";
 	system(command);
-	std::cout << "////////////////////////////////////////////////////\n" << std::endl;
+	std::cout << "//////////////////////////////////////////////////////////////////////////////\n" << std::endl;
 }
 
 void listDirectoryNotesText(){
-	std::cout << "////////////////////////////////////////////////////" << std::endl;
+	std::cout << "///////////////////////////////////////////////////////////////" << std::endl;
 	char command[50] = "ls src/notesTextFiles";
 	system(command);
-	std::cout << "////////////////////////////////////////////////////\n" << std::endl;
+	std::cout << "///////////////////////////////////////////////////////////////\n" << std::endl;
 }
 
 void listDirectoryVideostreamJson(){
-	std::cout << "////////////////////////////////////////////////////" << std::endl;
+	std::cout << "///////////////////////////////////////////////////////////////" << std::endl;
 	char command[50] = "ls src/videostreamJsonFiles";
 	system(command);
-	std::cout << "////////////////////////////////////////////////////\n" << std::endl;
+	std::cout << "///////////////////////////////////////////////////////////////\n" << std::endl;
 }
 
 void printTimeNow(){
 	auto rightNow = std::chrono::system_clock::now();
 	std::time_t timeNow = std::chrono::system_clock::to_time_t(rightNow);
-    std::cout << std::ctime(&timeNow);
+    std::cout << std::setw(12) << std::right << std::ctime(&timeNow);
 }

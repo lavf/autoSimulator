@@ -8,7 +8,10 @@ class TextFile: public File {
 public:
 	TextFile(const std::string &fileName);
 	virtual ~TextFile();
+	void printHeader();
+	void printHeaderDe();
 	void textReader();
+
 };
 
 #endif /* TEXTFILE_H_ */
