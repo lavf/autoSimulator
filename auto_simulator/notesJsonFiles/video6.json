@@ -11,7 +11,7 @@
 			"notificationnr": 2,
 			"seqnr": 377,
 			"time": "11:31:02",
-			"result": "None"
+			"result": "No Notice"
 		},
 		{
 			"notificationnr": 3,
@@ -23,6 +23,6 @@
 			"notificationnr": 4,
 			"seqnr": 406,
 			"time": "11:31:07",
-			"result": "None"
+			"result": "No Notice"
 		}]
 }

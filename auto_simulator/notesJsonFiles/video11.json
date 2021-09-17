@@ -3,62 +3,50 @@
 	"date": "23.06.",
 	"status": [{
 			"notificationnr": 1,
-			"seqnr": 2,
+			"seqnr": 1579,
 			"time": "15:04:12",
-			"result": "No Critical"
+			"result": "No Notice"
 		},
 		{
 			"notificationnr": 2,
-			"seqnr": 1579,
-			"time": "15:04:12",
-			"result": "No Critical"
+			"seqnr": 1687,
+			"time": "15:04:33",
+			"result": "No Notice"
 		},
 		{
 			"notificationnr": 3,
-			"seqnr": 1687,
-			"time": "15:04:33",
-			"result": "No Warning"
+			"seqnr": 1741,
+			"time": "15:04:43",
+			"result": "No Notice"
 		},
 		{
 			"notificationnr": 4,
-			"seqnr": 1741,
-			"time": "15:04:43",
-			"result": "No Alarm"
+			"seqnr": 1769,
+			"time": "15:04:48",
+			"result": "No Notice"
 		},
 		{
 			"notificationnr": 5,
-			"seqnr": 1769,
-			"time": "15:04:48",
-			"result": "No Alarm"
-		},
-		{
-			"notificationnr": 6,
 			"seqnr": 2738,
 			"time": "15:07:55",
 			"result": "Critical"
 		},
 		{
-			"notificationnr": 7,
+			"notificationnr": 6,
 			"seqnr": 2804,
 			"time": "15:08:08",
 			"result": "End Critical"
 		},
 		{
-			"notificationnr": 8,
+			"notificationnr": 7,
 			"seqnr": 2846,
 			"time": "15:08:15",
 			"result": "Warning"
 		},
 		{
-			"notificationnr": 9,
+			"notificationnr": 8,
 			"seqnr": 2900,
 			"time": "15:08:25",
 			"result": "Alarm"
-		},
-		{
-			"notificationnr": 10,
-			"seqnr": 3231,
-			"time": "15:09:27",
-			"result": "End Alarm"
 		}]
 }
