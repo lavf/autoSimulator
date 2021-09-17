@@ -1,7 +1,0 @@
-﻿15:04:12 23.06., Frame 28817, Seq# 1579: No Critical
-15:04:33 23.06., Frame 28925, Seq# 1687: No Warning
-15:04:43 23.06., Frame 28979, Seq# 1741: No Alarm
-15:07:55 23.06., Frame 29976, Seq# 2738: Critical
-15:08:15 23.06., Frame 30084, Seq# 2846: Warning
-15:08:25 23.06., Frame 30138, Seq# 2900: Alarm
-15:09:27 23.06., Frame 30469, Seq# 3231: End Alarm

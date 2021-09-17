@@ -1,6 +1,0 @@
-13:50:43 23.06., Frame 5050, Seq# 4369: Critical
-13:50:49 23.06., Frame 5083, Seq# 4402: End Critical
-13:51:03 23.06., Frame 5159, Seq# 4478: Critical
-13:51:12 23.06., Frame 5205, Seq# 4524: End Critical
-13:51:47 23.06., Frame 5397, Seq# 4716: Critical
-13:51:52 23.06., Frame 5421, Seq# 4740: End Critical

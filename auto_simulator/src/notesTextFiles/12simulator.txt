@@ -1,7 +1,0 @@
-Session 12, Seqnr 981: Critical
-Session 12, Seqnr 1072: End_Critical
-Session 12, Seqnr 1080: Critical
-Session 12, Seqnr 1110: End_Critical
-Session 12, Seqnr 1117: Critical
-Session 12, Seqnr 1124: End_Critical
-End: 1222
