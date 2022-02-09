@@ -4,6 +4,6 @@ C++ console program in English and German to read data from a JSON-file and disp
 
 ### Library
 
-- <a href="https://github.com/nlohmann/json">nlohman JSON Library for C++</a>
+- <a href="https://github.com/nlohmann/json">nlohmann JSON Library for C++</a>
 
 **For educational purposes**
